@@ -44,12 +44,13 @@ dependencies:
       - azure-core==1.41.0
       - azure-identity==1.25.3
       - azure-storage-blob==12.29.0
+      - backoff==2.2.1
       - bcrypt==5.0.0
       - beautifulsoup4==4.14.3
       - bidict==0.23.1
       - black==26.5.1
-      - boto3==1.42.62
-      - botocore==1.42.97
+      - boto3==1.43.56
+      - botocore==1.43.56
       - brotli==1.2.0
       - brotlicffi==1.2.0.1
       - build==1.5.0
@@ -59,20 +60,25 @@ dependencies:
       - charset-normalizer==3.4.9
       - chromadb==1.5.9
       - click==8.4.2
-      - cryptography==48.0.0
+      - croniter==6.2.4
+      - cryptography==48.0.1
       - ctranslate2==4.8.1
       - ddgs==9.14.4
       - defusedxml==0.7.1
       - distro==1.9.0
+      - dnspython==2.8.0
       - docstring-parser==0.18.0
       - docx2txt==0.9
       - durationpy==0.10
       - ecdsa==0.19.2
       - einops==0.8.2
+      - email-validator==2.3.0
       - et-xmlfile==2.0.0
       - events==0.5
+      - expression==5.6.0
       - fake-useragent==2.2.0
       - fastapi==0.136.3
+      - fastapi-sso==0.21.1
       - faster-whisper==1.2.1
       - fastuuid==0.14.0
       - filelock==3.32.0
@@ -93,11 +99,14 @@ dependencies:
       - google-genai==1.66.0
       - google-resumable-media==2.10.0
       - googleapis-common-protos==1.75.0
+      - granian==2.7.9
       - greenlet==3.5.4
       - grpcio==1.83.0
+      - gunicorn==23.0.0
       - h11==0.16.0
       - h2==4.4.0
       - hf-xet==1.5.2
+      - honcho==2.0.0
       - hpack==4.2.0
       - httpcore==1.0.9
       - httplib2==0.32.0
@@ -134,13 +143,15 @@ dependencies:
       - langsmith==0.10.10
       - ldap3==2.9.1
       - litellm==1.93.0
+      - litellm-enterprise==0.1.49
+      - litellm-proxy-extras==0.4.76
       - loguru==0.7.3
       - lxml==6.1.1
       - mako==1.3.12
       - markdown==3.10.2
       - markdown-it-py==4.2.0
       - markupsafe==3.0.3
-      - mcp==1.27.2
+      - mcp==1.28.1
       - mdurl==0.1.2
       - mmh3==5.2.1
       - mpmath==1.3.0
@@ -176,6 +187,8 @@ dependencies:
       - pathspec==1.1.1
       - pillow==12.2.0
       - platformdirs==4.11.0
+      - polars==1.43.0
+      - polars-runtime-32==1.43.0
       - primp==1.3.1
       - propcache==0.5.2
       - proto-plus==1.28.2
@@ -198,11 +211,13 @@ dependencies:
       - pyjwt==2.13.0
       - pymdown-extensions==10.21.3
       - pymysql==1.2.0
+      - pynacl==1.6.2
       - pypandoc==1.17
       - pyparsing==3.3.2
       - pypdf==6.7.5
       - pypika==0.51.1
       - pyproject-hooks==1.2.0
+      - pyroscope-io==0.8.16
       - python-dateutil==2.9.0.post0
       - python-dotenv==1.2.2
       - python-engineio==4.13.3
@@ -227,8 +242,9 @@ dependencies:
       - restrictedpython==8.2
       - rich==13.9.4
       - rpds-py==2026.6.3
+      - rq==2.10.0
       - rsa==4.9.1
-      - s3transfer==0.16.1
+      - s3transfer==0.19.2
       - safetensors==0.8.0
       - scikit-learn==1.9.0
       - scipy==1.17.1
@@ -268,7 +284,7 @@ dependencies:
       - watchfiles==1.2.0
       - wcwidth==0.8.2
       - websocket-client==1.9.0
-      - websockets==16.1.1
+      - websockets==15.0.1
       - wsproto==1.3.2
       - xlrd==2.0.2
       - xlsxwriter==3.2.9
