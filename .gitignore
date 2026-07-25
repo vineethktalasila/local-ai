@@ -1,0 +1,16 @@
+.env
+.venv
+env/
+venv/
+.ipynb_checkpoints/
+data/raw/*
+data/processed/*
+models/*.pt
+models/*.h5
+models/*.pkl
+*.csv
+*.parquet
+*.dat
+__pycache__/
+*.py[cod]
+.DS_Store
