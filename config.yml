@@ -1,0 +1,16 @@
+model_list:
+  - model_name: coder
+    litellm_params:
+      model: ollama/qwen2.5-coder:32b
+      api_base: http://localhost:11434
+  - model_name: reasoning
+    litellm_params:
+      model: ollama/deepseek-r1:32b
+      api_base: http://localhost:11434
+  - model_name: general
+    litellm_params:
+      model: ollama/gemma4:12b
+      api_base: http://localhost:11434
+
+router_settings:
+  routing_strategy: "usage-based-routing"
