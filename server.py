@@ -107,12 +107,27 @@ async def transparent_proxy(request: Request, path: str):
                 status_code=507, 
                 detail="Guardian: macOS memory pressure is Critical (Red). Model loading aborted to prevent system lockup."
             )
+
+        # ---------------------------------------------------------
+        # Tool Stripping: Forcibly remove functions from the payload
+        # This guarantees the model will only output standard text.
+        # ---------------------------------------------------------
+        try:
+            payload = json.loads(body_bytes.decode("utf-8"))
+            if "tools" in payload:
+                del payload["tools"]
+            if "tool_choice" in payload:
+                del payload["tool_choice"]
+            # Repackage the clean payload
+            body_bytes = json.dumps(payload).encode("utf-8")
+        except Exception:
+            pass
             
         # 2. Record the exact amount of swap memory used before inference begins
         initial_swap_out = psutil.swap_memory().sout
         
-        # 3. Forward the request to LiteLLM
-        client = httpx.AsyncClient(base_url=LITELLM_API)
+        # 3. Forward the request to LiteLLM (with extended 120s timeout)
+        client = httpx.AsyncClient(base_url=LITELLM_API, timeout=120.0)
         url = httpx.URL(path=request.url.path, query=request.url.query.encode("utf-8"))
         
         req = client.build_request(
@@ -144,8 +159,8 @@ async def transparent_proxy(request: Request, path: str):
             headers=response.headers
         )
         
-    # Fallback for non-chat API requests
-    client = httpx.AsyncClient(base_url=LITELLM_API, timeout=150.0)
+    # Fallback for non-chat API requests (with extended 120s timeout)
+    client = httpx.AsyncClient(base_url=LITELLM_API, timeout=120.0)
     url = httpx.URL(path=request.url.path, query=request.url.query.encode("utf-8"))
     req = client.build_request(
         request.method,
